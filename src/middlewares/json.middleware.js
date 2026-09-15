@@ -1,3 +1,5 @@
+const { ERROR_MESSAGES } = require("../config/constants");
+
 const jsonMiddleware = (req, _, next) => {
   let body = "";
   req.on("data", (buffer) => {
@@ -5,9 +7,16 @@ const jsonMiddleware = (req, _, next) => {
   });
   req.on("end", () => {
     if (body) {
-      req.body = JSON.parse(body);
+      try {
+        req.body = JSON.parse(body);
+      } catch (error) {
+        return next(new Error(ERROR_MESSAGES.INVALID_JSON));
+      }
     }
     next();
+  });
+  req.on("error", (error) => {
+    next(error);
   });
 };
 
