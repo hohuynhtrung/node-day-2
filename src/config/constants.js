@@ -7,7 +7,7 @@ module.exports = {
 
   // Authentication
   BCRYPT_SALT_ROUNDS: 10,
-  ACCESS_TOKEN_TTL_SECONDS: 10,
+  ACCESS_TOKEN_TTL_SECONDS: 3600,
   REFRESH_TOKEN_TTL_DAYS: 30,
 
   // Database
@@ -29,6 +29,7 @@ module.exports = {
     CREATED: 201,
     UNAUTHORIZED: 401,
     NOT_FOUND: 404,
+    CONFLICT: 409,
     UNPROCESSABLE_ENTITY: 422,
     INTERNAL_SERVER_ERROR: 500,
   },
