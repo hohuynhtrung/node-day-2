@@ -3,10 +3,10 @@ require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
 const appRoute = require("./src/routes");
-const json = require("./src/middlewares/json");
-const response = require("./src/middlewares/response");
-const errorHandler = require("./src/middlewares/errorHandler");
-const notFound = require("./src/middlewares/notFound");
+const json = require("./src/middlewares/json.middleware");
+const response = require("./src/middlewares/response.middleware");
+const errorHandler = require("./src/middlewares/errorHandler.middleware");
+const notFound = require("./src/middlewares/notFound.middleware");
 
 require("./src/config/database");
 
